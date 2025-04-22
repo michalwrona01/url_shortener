@@ -18,7 +18,7 @@ class ShortURLSelector:
         return cls.model.objects.filter(short_code=short_code).exists()
 
     @classmethod
-    def get_short_url(cls, *, short_code: str) -> ShortURL:
+    def get_short_url_by_short_code(cls, *, short_code: str) -> ShortURL:
         """Get a short URL from the database.
 
         :param short_code: The short code of the ShortURL.

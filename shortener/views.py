@@ -45,7 +45,7 @@ class ResolveShortURLView(APIView):
         responses={status.HTTP_200_OK: ResolveShortURLSerializer(many=False)}
     )
     def get(self, request, short_code):
-        obj = self.selector.get_short_url(short_code=short_code)
+        obj = self.selector.get_short_url_by_short_code(short_code=short_code)
         serializer = self.serializer_response({"original_url": obj.original_url})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -59,5 +59,5 @@ class RedirectToOriginalURLView(APIView):
         responses={status.HTTP_302_FOUND: "Redirected to original URL"}
     )
     def get(self, request, short_code):
-        obj = self.selector.get_short_url(short_code=short_code)
+        obj = self.selector.get_short_url_by_short_code(short_code=short_code)
         return HttpResponseRedirect(obj.original_url)

@@ -42,7 +42,7 @@ api_paths = [
 
 urlpatterns = [
     path(
-        "<str:short_code>",
+        "<slug:short_code>",
         RedirectToOriginalURLView.as_view(),
         name="redirect-to-original-url",
     ),

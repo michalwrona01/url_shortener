@@ -5,7 +5,7 @@ from shortener.views import CreateShortURLView, ResolveShortURLView
 urlpatterns = [
     path("shorten", CreateShortURLView.as_view(), name="create-short-url"),
     path(
-        "resolve/<str:short_code>",
+        "resolve/<slug:short_code>",
         ResolveShortURLView.as_view(),
         name="resolve-short-url",
     ),
